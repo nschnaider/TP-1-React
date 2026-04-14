@@ -1,5 +1,6 @@
 import { useState } from "react";
 import Titulo from "./Titulo";
+import "./Formulario.css";
 
 export default function Formulario({ agregarCita }) {
   const [formulario, setFormulario] = useState({
@@ -12,7 +13,6 @@ export default function Formulario({ agregarCita }) {
 
   const { nombre, duenio, fecha, hora, sintomas } = formulario;
 
-  // Actualiza el estado cada vez que el usuario escribe
   function handleChange(e) {
     setFormulario({
       ...formulario,
@@ -20,11 +20,9 @@ export default function Formulario({ agregarCita }) {
     });
   }
 
-  // Maneja el envío del formulario
   function handleSubmit(e) {
     e.preventDefault();
 
-    // Validación simple
     if (
       nombre.trim() === "" ||
       duenio.trim() === "" ||
@@ -36,7 +34,6 @@ export default function Formulario({ agregarCita }) {
       return;
     }
 
-    // Creamos la nueva cita con id único
     const nuevaCita = {
       id: Date.now(),
       nombre,
@@ -48,7 +45,6 @@ export default function Formulario({ agregarCita }) {
 
     agregarCita(nuevaCita);
 
-    // Limpiamos el formulario
     setFormulario({
       nombre: "",
       duenio: "",
@@ -59,60 +55,60 @@ export default function Formulario({ agregarCita }) {
   }
 
   return (
-    <>
+    <div className="formulario">
       <Titulo titulo="Crear mi Cita" />
 
-      <form onSubmit={handleSubmit}>
-        <label>Nombre Mascota</label>
+      <form className="formulario-form" onSubmit={handleSubmit}>
+        <label className="formulario-label">Nombre Mascota</label>
         <input
           type="text"
           name="nombre"
-          className="u-full-width"
+          className="u-full-width formulario-input"
           placeholder="Nombre Mascota"
           value={nombre}
           onChange={handleChange}
         />
 
-        <label>Nombre Dueño</label>
+        <label className="formulario-label">Nombre Dueño</label>
         <input
           type="text"
           name="duenio"
-          className="u-full-width"
+          className="u-full-width formulario-input"
           placeholder="Nombre dueño de la mascota"
           value={duenio}
           onChange={handleChange}
         />
 
-        <label>Fecha</label>
+        <label className="formulario-label">Fecha</label>
         <input
           type="date"
           name="fecha"
-          className="u-full-width"
+          className="u-full-width formulario-input"
           value={fecha}
           onChange={handleChange}
         />
 
-        <label>Hora</label>
+        <label className="formulario-label">Hora</label>
         <input
           type="time"
           name="hora"
-          className="u-full-width"
+          className="u-full-width formulario-input"
           value={hora}
           onChange={handleChange}
         />
 
-        <label>Síntomas</label>
+        <label className="formulario-label">Síntomas</label>
         <textarea
           name="sintomas"
-          className="u-full-width"
+          className="u-full-width formulario-textarea"
           value={sintomas}
           onChange={handleChange}
         ></textarea>
 
-        <button type="submit" className="u-full-width button-primary">
+        <button type="submit" className="u-full-width button-primary formulario-boton">
           Agregar Cita
         </button>
       </form>
-    </>
+    </div>
   );
-} 
+}

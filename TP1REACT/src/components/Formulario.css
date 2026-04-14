@@ -1,0 +1,28 @@
+.formulario {
+  color: white;
+}
+
+.formulario-form {
+  background-color: transparent;
+}
+
+.formulario-label {
+  display: block;
+  margin-bottom: 6px;
+  font-weight: bold;
+  color: white;
+}
+
+.formulario-input,
+.formulario-textarea {
+  margin-bottom: 14px;
+}
+
+.formulario-textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+.formulario-boton {
+  margin-top: 10px;
+}

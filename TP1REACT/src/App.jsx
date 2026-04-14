@@ -1,6 +1,7 @@
 import { useState } from "react";
 import Formulario from "./components/Formulario";
 import Listado from "./components/Listado";
+import "./App.css";
 
 function App() {
   const [citas, setCitas] = useState([
@@ -30,14 +31,12 @@ function App() {
     },
   ]);
 
-  // Agrega una nueva cita al listado
   function agregarCita(nuevaCita) {
     setCitas([...citas, nuevaCita]);
   }
 
-  // Elimina una cita por id
   function eliminarCita(id) {
-    const confirmar = confirm("¿Seguro que querés eliminar esta cita?");
+    const confirmar = window.confirm("¿Seguro que querés eliminar esta cita?");
     if (confirmar) {
       const nuevoArray = citas.filter((cita) => cita.id !== id);
       setCitas(nuevoArray);
@@ -46,9 +45,9 @@ function App() {
 
   return (
     <>
-      <h1>ADMINISTRADOR DE PACIENTES</h1>
+      <h1 className="app-titulo-principal">ADMINISTRADOR DE PACIENTES</h1>
 
-      <div className="container">
+      <div className="container app-contenedor">
         <div className="row">
           <div className="one-half column">
             <Formulario agregarCita={agregarCita} />

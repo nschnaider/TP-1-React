@@ -1,0 +1,25 @@
+.cita {
+  background: white;
+  color: black;
+  margin-bottom: 20px;
+  padding: 20px;
+  border-radius: 6px;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.15);
+}
+
+.cita p {
+  font-weight: bold;
+  margin-bottom: 10px;
+  color: #393e46;
+}
+
+.cita p span {
+  font-weight: normal;
+}
+
+.cita-eliminar {
+  background-color: #c10059;
+  color: white;
+  margin-top: 10px;
+  border: none;
+}

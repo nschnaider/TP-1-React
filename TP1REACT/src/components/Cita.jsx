@@ -1,3 +1,5 @@
+import "./Cita.css";
+
 export default function Cita({ objeto, eliminarCita }) {
   const { id, nombre, duenio, fecha, hora, sintomas } = objeto;
 
@@ -20,7 +22,7 @@ export default function Cita({ objeto, eliminarCita }) {
       </p>
 
       <button
-        className="button eliminar u-full-width"
+        className="button cita-eliminar u-full-width"
         onClick={() => eliminarCita(id)}
       >
         Eliminar ×
