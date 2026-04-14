@@ -1,23 +1,30 @@
-export default function Cita({ objeto }) {
-  const { nombre, duenio, fecha, hora, sintomas } = objeto;
+export default function Cita({ objeto, eliminarCita }) {
+  const { id, nombre, duenio, fecha, hora, sintomas } = objeto;
+
   return (
-    <div class="cita">
+    <div className="cita">
       <p>
         Mascota: <span>{nombre}</span>
       </p>
       <p>
-              Dueño: <span>{duenio}</span>
+        Dueño: <span>{duenio}</span>
       </p>
       <p>
         Fecha: <span>{fecha}</span>
       </p>
       <p>
-              Hora: <span>{hora}</span>
+        Hora: <span>{hora}</span>
       </p>
       <p>
-              Sintomas: <span>{sintomas}</span>
+        Síntomas: <span>{sintomas}</span>
       </p>
-      <button class="button elimnar u-full-width">Eliminar ×</button>
+
+      <button
+        className="button eliminar u-full-width"
+        onClick={() => eliminarCita(id)}
+      >
+        Eliminar ×
+      </button>
     </div>
   );
 }
