@@ -1,35 +1,17 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Formulario from "./components/Formulario";
 import Listado from "./components/Listado";
 import "./App.css";
 
+
 function App() {
-  const [citas, setCitas] = useState([
-    {
-      id: 1,
-      nombre: "Luna",
-      duenio: "Marcos",
-      fecha: "2026-04-10",
-      hora: "09:30",
-      sintomas: "No quiere comer",
-    },
-    {
-      id: 2,
-      nombre: "Simba",
-      duenio: "Carla",
-      fecha: "2026-04-11",
-      hora: "11:00",
-      sintomas: "Tiene dolor en la pata",
-    },
-    {
-      id: 3,
-      nombre: "Mora",
-      duenio: "Lucía",
-      fecha: "2026-04-12",
-      hora: "16:15",
-      sintomas: "Control general",
-    },
-  ]);
+const [citas, setCitas] = useState(() => {
+  const citas1 = localStorage.getItem("citas");
+  return citas1 ? JSON.parse(citas1) : [];
+});
+useEffect(() => {
+  localStorage.setItem("citas", JSON.stringify(citas));
+}, [citas]);
 
   function agregarCita(nuevaCita) {
     setCitas([...citas, nuevaCita]);
